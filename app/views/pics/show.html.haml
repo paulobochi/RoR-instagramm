@@ -14,6 +14,8 @@
               = @pic.user.email
           .col-sm-6
             .btn-group.pull-right
+              - if current_user
+                = current_user.voted_for? @pic
               = link_to like_pic_path(@pic), method: :put, class: 'btn btn-default' do
                 %span.glyphicon.glyphicon-thumbs-up
                 = @pic.get_upvotes.size
