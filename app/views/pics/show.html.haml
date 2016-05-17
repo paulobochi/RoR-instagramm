@@ -1,9 +1,19 @@
-= image_tag @pic.image.url, class: 'img-responsive center-block'
-%h1= @pic.title
-%p= @pic.description
-%p
-  Pic by
-  = @pic.user.email
-
-= link_to 'Edit', edit_pic_path
-= link_to 'Delete', pic_path, method: :delete, data: { confirm: 'Are you sure?' }
+#pic_show.row
+  .col-sm-6.col-sm-offset-3
+    .panel.panel-default
+      .panel-heading.pic_image
+        = image_tag @pic.image.url, class: 'img-responsive center-block'
+      .panel-body
+        %h1= @pic.title
+        %p= @pic.description
+      .panel-footer
+        .row
+          .col-sm-6
+            %p.user
+              by
+              = @pic.user.email
+          .col-sm-6
+            .btn-group.pull-right
+              - if current_user && @pic.user && current_user.id == @pic.user.id
+                = link_to 'Edit', edit_pic_path, class: 'btn btn-info'
+                = link_to 'Delete', pic_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'

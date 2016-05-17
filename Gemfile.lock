@@ -85,6 +85,8 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
+    masonry-rails (0.2.4)
+      railties
     mime-types (3.0)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0221)
@@ -176,18 +178,19 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass (~> 3.3, >= 3.3.6)
+  bootstrap-sass (~> 3.3.6)
   byebug
   coffee-rails (~> 4.1.0)
-  devise (~> 4.1, >= 4.1.1)
-  haml (~> 4.0, >= 4.0.7)
+  devise (~> 4.1.1)
+  haml (~> 4.0.7)
   jbuilder (~> 2.0)
   jquery-rails
-  paperclip (~> 4.3, >= 4.3.6)
+  masonry-rails (~> 0.2.1)
+  paperclip (~> 4.3.6)
   rails (= 4.2.6)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
-  simple_form (~> 3.2, >= 3.2.1)
+  simple_form (~> 3.2.1)
   spring
   sqlite3
   turbolinks
