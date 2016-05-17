@@ -14,11 +14,14 @@
               = @pic.user.email
           .col-sm-6
             .btn-group.pull-right
-              - if current_user
-                = current_user.voted_for? @pic
-              = link_to like_pic_path(@pic), method: :put, class: 'btn btn-default' do
-                %span.glyphicon.glyphicon-thumbs-up
-                = @pic.get_upvotes.size
+              - if current_user && current_user.liked?(@pic)
+                = link_to unlike_pic_path(@pic), method: :put, class: 'btn btn-primary' do
+                  %span.glyphicon.glyphicon-thumbs-up
+                  = @pic.get_upvotes.size
+              - else
+                = link_to like_pic_path(@pic), method: :put, class: 'btn btn-default' do
+                  %span.glyphicon.glyphicon-thumbs-up
+                  = @pic.get_upvotes.size
               - if current_user && @pic.user && current_user.id == @pic.user.id
                 = link_to edit_pic_path, class: 'btn btn-default' do
                   Fix Pic
